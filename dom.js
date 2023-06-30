@@ -31,5 +31,6 @@ header.style.borderBottom = "solid 3px #000";
 let addItems=document.getElementById("add-items");
 console.log(addItems);
 addItems.style.fontWeight = "bold";
+addItems.style.color="green";
 
 
