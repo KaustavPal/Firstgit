@@ -27,7 +27,6 @@ let header = document.getElementById("main-header");
 //console.log(headerTitle.innerText);
 //headerTitle.innerHTML="<h3>Hello</h3>"
 header.style.borderBottom = "solid 3px #000";
-
 let addItems=document.getElementById("add-items");
 console.log(addItems);
 addItems.style.fontWeight = "bold";
