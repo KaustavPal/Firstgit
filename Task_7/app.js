@@ -1,5 +1,4 @@
 const myForm=document.querySelector("#my-form");
-const msg=document.querySelector(".msg");
 const nameInput= document.querySelector("#name");
 const emailInput= document.querySelector("#email");
 
