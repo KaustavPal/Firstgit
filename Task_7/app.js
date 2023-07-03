@@ -13,7 +13,8 @@ function onSubmit(e){
         setTimeout(() => msg.remove(), 3000);
     }
     else{
-        localStorage.setItem(emailInput.value, nameInput.value);
+        localStorage.setItem("name", nameInput.value);
+        localStorage.setItem("email", emailInput.value);
     }
     
 }
