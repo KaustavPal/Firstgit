@@ -26,10 +26,7 @@
         }
         .form-label{
             color: black;
-            font-weight: 700;
-        }
-        .error{
-            color:red;
+            font-weight: 600;
         }
     </style>
     <title>Document</title>
@@ -41,15 +38,20 @@
                 <h1>Add User</h1>
                 <div class="mb-3">
                     <label for="name" class="form-label mb-0">Name:</label>
-                    <input type="text" id="name" class="form-control border-2 border-dark" required/>
+                    <input type="text" id="name" class="form-control" required/>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label mb-0">Email:</label>
-                    <input type="email" id="email" class="form-control border-2 border-dark" required/>
+                    <input type="email" id="email" class="form-control" required/>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label mb-0">Phone:</label>
+                    <input type="tel" id="phone" class="form-control" required/>
                 </div>
                 <input class="btn btn-dark" type="submit" value="Submt">
             </form>
         </div>
+        <ul id="user-info"></ul>
     </div>
     
     <script src="app.js"></script>
