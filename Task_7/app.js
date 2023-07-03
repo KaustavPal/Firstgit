@@ -24,16 +24,30 @@ function showUser(userObj){
     const parentElem = document.getElementById("user-info");
     const childElem = document.createElement("li");
     childElem.textContent = `${userObj.name} - ${userObj.email} - ${userObj.phone}`;
-    
+    nameInput.value="";
+    emailInput.value="";
+    phoneInput.value="";
     const deleteBtn = document.createElement("input");
     deleteBtn.type="button";
     deleteBtn.value="Delete"
-    deleteBtn.classList ="btn btn-danger btn-sm float-right delete";
+    deleteBtn.className = "btn btn-danger btn-sm float-right delete";
     deleteBtn.onclick = function(){
         localStorage.removeItem(userObj.email);
         parentElem.removeChild(childElem);  
     }
+    const editBtn = document.createElement("input");
+    editBtn.type="button";
+    editBtn.value="Edit";
+    editBtn.className =  "btn btn-primary btn-sm float-right edit";
+    editBtn.onclick = function(){
+        nameInput.value=userObj.name;
+        emailInput.value=userObj.email;
+        phoneInput.value=userObj.phone;
+        localStorage.removeItem(userObj.email);
+        parentElem.removeChild(childElem);  
+    }
     childElem.appendChild(deleteBtn);
+    childElem.appendChild(editBtn);
     parentElem.appendChild(childElem);  
 }
 
