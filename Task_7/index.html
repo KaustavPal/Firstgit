@@ -12,7 +12,7 @@
             width:500px;
             background-color: rgba(175, 171, 170, 0.6);
         }
-        .btn{
+        #submit {
             font-size: 30px;
             color: white;
             width:100%;
@@ -38,19 +38,20 @@
                 <h1>Add User</h1>
                 <div class="mb-3">
                     <label for="name" class="form-label mb-0">Name:</label>
-                    <input type="text" id="name" class="form-control" required/>
+                    <input type="text" name="name" id="name" class="form-control" required/>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label mb-0">Email:</label>
-                    <input type="email" id="email" class="form-control" required/>
+                    <input type="email" name="email" id="email" class="form-control" required/>
                 </div>
                 <div class="mb-3">
                     <label for="phone" class="form-label mb-0">Phone:</label>
-                    <input type="tel" id="phone" class="form-control" required/>
+                    <input type="tel" name="phone" id="phone" class="form-control" required/>
                 </div>
-                <input class="btn btn-dark" type="submit" value="Submt">
+                <input class="btn btn-dark" id="submit" type="submit" value="Submt">
             </form>
         </div>
+        <br>
         <ul id="user-info"></ul>
     </div>
     <script src="app.js"></script>

@@ -2,21 +2,39 @@ const myForm=document.querySelector("#my-form");
 const nameInput= document.querySelector("#name");
 const emailInput= document.querySelector("#email");
 const phoneInput= document.querySelector("#phone");
-const ul=document.querySelector("#user-info");
 
 myForm.addEventListener("submit", onSubmit);
+
 function onSubmit(e){
     e.preventDefault();
-    let userObj = {
-        name: nameInput.value,
-        email: emailInput.value,
-        phone: phoneInput.value
+    const name = nameInput.value; 
+    const email = emailInput.value;
+    const phone = phoneInput.value;
+    const userObj = {
+        name,
+        email,
+        phone
     };
-    let userObj_serialized = JSON.stringify(userObj);
-    localStorage.setItem(emailInput.value, userObj_serialized); 
-    let userObj_deserialized = JSON.parse(localStorage.getItem(emailInput.value));
-    let li = document.createElement("li");
-    let newUser = `${userObj_deserialized.name} - ${userObj_deserialized.email} - ${userObj_deserialized.phone}`;
-    li.appendChild(document.createTextNode(newUser));
-    ul.appendChild(li);  
+
+    localStorage.setItem(userObj.email, JSON.stringify(userObj));  
+    showUser(userObj);
 }
+
+function showUser(userObj){
+    const parentElem = document.getElementById("user-info");
+    const childElem = document.createElement("li");
+    childElem.textContent = `${userObj.name} - ${userObj.email} - ${userObj.phone}`;
+    
+    const deleteBtn = document.createElement("input");
+    deleteBtn.type="button";
+    deleteBtn.value="Delete"
+    deleteBtn.classList ="btn btn-danger btn-sm float-right delete";
+    deleteBtn.onclick = function(){
+        localStorage.removeItem(userObj.email);
+        parentElem.removeChild(childElem);  
+    }
+    childElem.appendChild(deleteBtn);
+    parentElem.appendChild(childElem);  
+}
+
+
