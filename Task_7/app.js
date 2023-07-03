@@ -4,7 +4,6 @@ const emailInput= document.querySelector("#email");
 const phoneInput= document.querySelector("#phone");
 const ul=document.querySelector("#user-info");
 
-
 myForm.addEventListener("submit", onSubmit);
 function onSubmit(e){
     e.preventDefault();
@@ -21,4 +20,3 @@ function onSubmit(e){
     li.appendChild(document.createTextNode(newUser));
     ul.appendChild(li);  
 }
-
