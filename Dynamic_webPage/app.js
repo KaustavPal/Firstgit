@@ -63,6 +63,18 @@ function showUser(response) {
   deleteBtn.value = "Delete";
   deleteBtn.className = "btn btn-danger btn-sm float-right delete";
   deleteBtn.onclick = function () {
+    axios
+      .delete(
+        `https://crudcrud.com/api/76fc417dc32c4ca78bf04e0c245a48c7/apointmentData/${response._id}`
+      )
+      .then((response) => {
+        console.log(response);
+        parentElem.removeChild(childElem);
+      })
+      .catch((err) => {
+        document.body.innerHTML += `<h4>Something went Wrong</h4>`;
+        console.log(err);
+      });
     // localStorage.removeItem(userObj.email);
     // parentElem.removeChild(childElem);
   };
