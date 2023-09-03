@@ -22,7 +22,7 @@ function onSubmit(e) {
       userObj
     )
     .then((response) => {
-      showUser(response);
+      showUser(response.data);
     })
     .catch((err) => {
       document.body.innerHTML += `<h4>Something went Wrong</h4>`;
@@ -33,11 +33,28 @@ function onSubmit(e) {
   //showUser(userObj);
 }
 
+window.addEventListener("DOMContentLoaded", () => {
+  axios
+    .get(
+      "https://crudcrud.com/api/76fc417dc32c4ca78bf04e0c245a48c7/apointmentData"
+    )
+    .then((response) => {
+      console.log(response);
+      for (let i = 0; i < response.data.length; i++) {
+        showUser(response.data[i]);
+      }
+    })
+    .catch((err) => {
+      document.body.innerHTML += `<h4>Something went Wrong</h4>`;
+      console.log(err);
+    });
+});
+
 function showUser(response) {
   const parentElem = document.getElementById("user-info");
   const childElem = document.createElement("li");
-  console.log(response.data.name);
-  childElem.textContent = `${response.data.name} - ${response.data.email} - ${response.data.phone}`;
+  //console.log(response.data.name);
+  childElem.textContent = `${response.name} - ${response.email} - ${response.phone}`;
   nameInput.value = "";
   emailInput.value = "";
   phoneInput.value = "";
