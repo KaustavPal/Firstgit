@@ -18,7 +18,7 @@ function onSubmit(e) {
 
   axios
     .post(
-      "https://crudcrud.com/api/76fc417dc32c4ca78bf04e0c245a48c7/apointmentData",
+      "https://crudcrud.com/api/ad44ca17a65147789ecef8c046792364/apointmentData",
       userObj
     )
     .then((response) => {
@@ -36,7 +36,7 @@ function onSubmit(e) {
 window.addEventListener("DOMContentLoaded", () => {
   axios
     .get(
-      "https://crudcrud.com/api/76fc417dc32c4ca78bf04e0c245a48c7/apointmentData"
+      "https://crudcrud.com/api/ad44ca17a65147789ecef8c046792364/apointmentData"
     )
     .then((response) => {
       console.log(response);
@@ -65,7 +65,7 @@ function showUser(response) {
   deleteBtn.onclick = function () {
     axios
       .delete(
-        `https://crudcrud.com/api/76fc417dc32c4ca78bf04e0c245a48c7/apointmentData/${response._id}`
+        `https://crudcrud.com/api/ad44ca17a65147789ecef8c046792364/apointmentData/${response._id}`
       )
       .then((response) => {
         console.log(response);
@@ -83,9 +83,22 @@ function showUser(response) {
   editBtn.value = "Edit";
   editBtn.className = "btn btn-primary btn-sm float-right edit";
   editBtn.onclick = function () {
-    nameInput.value = userObj.name;
-    emailInput.value = userObj.email;
-    phoneInput.value = userObj.phone;
+    nameInput.value = response.name;
+    emailInput.value = response.email;
+    phoneInput.value = response.phone;
+    parentElem.removeChild(childElem);
+    axios
+      .delete(
+        `https://crudcrud.com/api/ad44ca17a65147789ecef8c046792364/apointmentData/${response._id}`
+      )
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        document.body.innerHTML += `<h4>Something went Wrong</h4>`;
+        console.log(err);
+      });
+
     // localStorage.removeItem(userObj.email);
     // parentElem.removeChild(childElem);
   };
